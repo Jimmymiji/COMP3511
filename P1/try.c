@@ -23,13 +23,14 @@ int main() {
     printf("*********");
     char argv[10][20];
     int numofTokens = 0;
-    char line[] = "ls -l -h ";
-    const char delimiter[] = " ";
+    char line[] = "ps aux | grep root | sort | less";
+    const char delimiter[] = "|";
     printf("******");
     char** out = tokenize(argv,line,&numofTokens,delimiter);
     printf("num of tokens: %d \n",numofTokens);
     for(int i = 0; i<numofTokens; i++){
         printf("*%s*\n",out[i]);
     }
+    //execlp(out[0],out[0],out[1],out[2],NULL);
     return 0;
 }
